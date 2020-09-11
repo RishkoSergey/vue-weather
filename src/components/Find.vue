@@ -3,7 +3,7 @@
     <input
       type="text"
       v-model="city"
-      @keyup.enter="findCity(city)"
+      @keyup.enter="find(city)"
       placeholder="Найти город"
     />
     <img src="../assets/search.png" />
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data: () => {
     return {
@@ -18,8 +20,10 @@ export default {
     };
   },
   methods: {
-    findCity(city) {
+    ...mapActions(['findCity']),
+    find(city) {
       this.$router.push(city);
+      this.findCity(city);
     }
   }
 };

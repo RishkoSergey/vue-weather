@@ -24,5 +24,8 @@ export default {
   padding: 20px;
   background-color: #EBEDEE;
   min-height: 100vh;
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
 }
 </style>
