@@ -3,10 +3,10 @@
     <input
       type="text"
       v-model="city"
-      @keyup.enter="find(city)"
+      @keyup.enter="find"
       placeholder="Найти город"
     />
-    <img src="../assets/search.png" />
+    <img src="../assets/search.png" @click="find" />
   </div>
 </template>
 
@@ -21,9 +21,9 @@ export default {
   },
   methods: {
     ...mapActions(['findCity']),
-    find(city) {
-      this.$router.push(city);
-      this.findCity(city);
+    find() {
+      this.$router.push(this.city);
+      this.findCity(this.city);
     }
   }
 };
@@ -51,6 +51,9 @@ export default {
   img {
     width: 23px;
     height: 23px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
   }
   @media (max-width: 767px) {
     margin: 0 24px;
