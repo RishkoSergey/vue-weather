@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Day from './Day.vue';
-import { mapGetters, mapState } from "vuex";
+import Day from '../components/Day.vue';
+import { mapActions, mapGetters, mapState } from "vuex";
 
 export default {
   components: {
@@ -23,7 +23,11 @@ export default {
   computed: {
     ...mapState(['city', 'today']),
     ...mapGetters(['getWeatherByDay'])
-  }
+  },
+  mounted() {
+    this.findCity(this.$route.params.city);
+  },
+  methods: mapActions(['findCity'])
 };
 </script>
 

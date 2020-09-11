@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
 export default {
   data: () => {
     return {
@@ -20,7 +18,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["findCity"])
+    findCity(city) {
+      this.$router.push(city);
+    }
   }
 };
 </script>

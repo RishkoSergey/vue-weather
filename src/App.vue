@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <Find />
-    <List />
+    <router-view/>
   </div>
 </template>
 
 <script>
 import Find from './components/Find.vue';
-import List from './components/List.vue';
 
 export default {
   name: 'App',
   components: {
-    Find,
-    List
+    Find
   }
 }
 </script>
